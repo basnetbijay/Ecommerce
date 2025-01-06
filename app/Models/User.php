@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+   // protected $table = 'users';
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
@@ -45,7 +46,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    public function setPasswordAttribute($value){
-        $this->attribute['password']=bcrypt($value);
-    }
+    // public function setPasswordAttribute($value){
+    //     $this->attribute['password']=bcrypt($value);
+    // }
 }
