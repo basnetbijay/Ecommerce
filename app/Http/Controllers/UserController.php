@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Auth\Events\Attempting;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -18,7 +20,20 @@ class UserController extends Controller
 
     public function login(Request $request){
         $data =$request->all();
-
+        $rules =[
+         
+          'email'=> 'required|max:255|email:rfc,dns',
+          'password'=>'required',
+        ];
+        $message=[
+          'required '=> 'the :attribute field is required',
+            ];
+          
+ $creds = $request->validate($rules ,$message);
+        if(Auth::attempt($creds)){
+          return redirect()->to('/')->with('message', 'logged in');
+        }
+        return redirect()->back()->with('error', 'doesnot match with credentials');
     }
     public function Signup(Request $request){
       $data = $request->all();
@@ -34,5 +49,9 @@ class UserController extends Controller
       $request->validate($rules , $message);
       User::create($data);
       return redirect()->route('login')->with('message', 'successfully signed up');
+    }
+    public function logout(){
+      Auth::logout();
+      return redirect()->to('/');
     }
 }

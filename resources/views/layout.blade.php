@@ -23,11 +23,19 @@
               Home
             </a>
           </li>
+       @if(Auth::check())
 
-          <a href="#" class="nav-link active" aria-current="page">
+
+          <a href="{{route('logout')}}" class="nav-link active" aria-current="page">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#login"></use></svg>
+            logout
+          </a>
+          @else 
+          <a href="{{route('login')}}" class="nav-link active" aria-current="page">
             <svg class="bi me-2" width="16" height="16"><use xlink:href="#login"></use></svg>
             Login
           </a>
+          @endif
         </li>
 
           <li>
@@ -73,7 +81,9 @@
 
     @yield('section')
 </div>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+@stack('script')
 </body>
 </html>

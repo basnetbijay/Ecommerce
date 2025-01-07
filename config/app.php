@@ -78,6 +78,38 @@ return [
     |
     */
 
+    // 'providers' => [
+    //     /*
+    //      * Laravel Framework Service Providers...
+    //      */
+    //     Illuminate\Auth\AuthServiceProvider::class,
+    //     Illuminate\Broadcasting\BroadcastServiceProvider::class,
+    //     Illuminate\Bus\BusServiceProvider::class,
+    //     Illuminate\Cache\CacheServiceProvider::class,
+      
+    //     Illuminate\Database\DatabaseServiceProvider::class,
+    //     Illuminate\Encryption\EncryptionServiceProvider::class,
+    //     Illuminate\Filesystem\FilesystemServiceProvider::class,
+    //     Illuminate\Foundation\Providers\FoundationServiceProvider::class,
+    //     Illuminate\Notifications\NotificationServiceProvider::class,
+    //     Illuminate\Pagination\PaginationServiceProvider::class,
+    //     Illuminate\Pipeline\PipelineServiceProvider::class,
+    //     Illuminate\Queue\QueueServiceProvider::class,
+    //     Illuminate\Redis\RedisServiceProvider::class,
+    //     Illuminate\Routing\RoutingServiceProvider::class,
+    //     Illuminate\Session\SessionServiceProvider::class,
+    //     Illuminate\Translation\TranslationServiceProvider::class,
+    //     Illuminate\Validation\ValidationServiceProvider::class,
+    //     Illuminate\View\ViewServiceProvider::class,
+
+       
+    //     Spatie\Permission\PermissionServiceProvider::class,  // Add this line
+
+    
+    // ],
+
+
+
     'locale' => env('APP_LOCALE', 'en'),
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
@@ -122,5 +154,8 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
+
+  
+
 
 ];

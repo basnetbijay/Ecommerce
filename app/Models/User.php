@@ -43,10 +43,10 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            // 'password' => 'hashed',
         ];
     }
-    // public function setPasswordAttribute($value){
-    //     $this->attribute['password']=bcrypt($value);
-    // }
+    public function setPasswordAttribute($value){
+        $this->attributes['password']=bcrypt($value);
+    }
 }
