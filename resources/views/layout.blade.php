@@ -48,6 +48,20 @@
               Customers
             </a>
           </li>
+
+          <li>
+            <a href="{{route('role.roles')}}" class="nav-link  {{Route::is('role.roles')? 'active' :''}} text-white">
+              <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+              Roles
+            </a>
+          </li>
+
+          <li>
+            <a href="{{route('user.users')}}" class="nav-link  {{Route::is('user.users')? 'active' :''}} text-white">
+              <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+              Users
+            </a>
+          </li>
         </ul>
         <hr>
         <div class="dropdown">

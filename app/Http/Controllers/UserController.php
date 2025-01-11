@@ -54,4 +54,13 @@ class UserController extends Controller
       Auth::logout();
       return redirect()->to('/');
     }
+
+
+  public function users(){
+    $users= User::all();
+    return view('admin.role.user',['users'=>$users]);
+  }
+  public function roleAssign(Request $request){
+
+  }
 }
