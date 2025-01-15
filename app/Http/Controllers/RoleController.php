@@ -8,13 +8,15 @@ use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
+    //adding the roles in the database and displaying the roles in the view
     public function Roles(){
         $role= Role::all();
-        return view('admin.role..roles',['roles'=>$role]);
+        return view('admin.role.roles',['roles'=>$role]);
     }
 
-    public function addRoles(Request $request){
-       
+    //adding the roles
+public function addRoles(Request $request){
+        
 $value = $request->all();
 $rules =[
 'name'=>'required|unique:roles'

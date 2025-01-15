@@ -18,8 +18,11 @@ class UserController extends Controller
         return view('auth.signup');
     }
 
+
+    //login function
     public function login(Request $request){
         $data =$request->all();
+        // dd($data);
         $rules =[
          
           'email'=> 'required|max:255|email:rfc,dns',
@@ -29,12 +32,14 @@ class UserController extends Controller
           'required '=> 'the :attribute field is required',
             ];
           
- $creds = $request->validate($rules ,$message);
+          $creds = $request->validate($rules ,$message);
+
         if(Auth::attempt($creds)){
           return redirect()->to('/')->with('message', 'logged in');
         }
         return redirect()->back()->with('error', 'doesnot match with credentials');
     }
+//signup  functions
     public function Signup(Request $request){
       $data = $request->all();
       $rules =[
@@ -50,6 +55,8 @@ class UserController extends Controller
       User::create($data);
       return redirect()->route('login')->with('message', 'successfully signed up');
     }
+    
+    //logout function
     public function logout(){
       Auth::logout();
       return redirect()->to('/');

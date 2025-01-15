@@ -7,7 +7,7 @@
             <h2>Roles</h2>
             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddroleButton">Add Roles</button>
         </div>
-      
+
 
         <table class="table">
             <thead>

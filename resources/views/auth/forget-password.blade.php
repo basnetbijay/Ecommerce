@@ -58,40 +58,29 @@
             }
         </style>
 
-
-        @if (session('message'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Success</strong>
-                {{ session('message') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-
-
-        @if (session('error'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Success</strong>
-                {{ session('error') }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
         <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
             <div class="row gx-lg-5 align-items-center mb-5">
                 <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
                     {{-- side pannel of form --}}
                     <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-                        The best offer <br />
-                        <span style="color: hsl(218, 81%, 75%)">for your business</span>
+                        Reset Your Password<br />
+
                     </h1>
                     <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Temporibus, expedita iusto veniam atque, magni tempora mollitia
-                        dolorum consequatur nulla, neque debitis eos reprehenderit quasi
-                        ab ipsum nisi dolorem modi. Quos?
+
                     </p>
                 </div>
+                {{-- @if (session('status'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Success</strong>
+                        {{ session('message') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif --}}
 
-
+                @if (session('status'))
+                    <x-flashMsg msg ="{{ session('status') }}" />
+                @endif
 
                 <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
                     <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
@@ -103,49 +92,25 @@
 
                             {{-- form starts with this --}}
 
-                            <form method="POST" action="{{ route('loggedIn') }}">
+                            <form method="POST" action="{{ route('password.email') }}">
                                 @csrf
-                                <!-- 2 column grid layout with text inputs for the first and last names -->
 
                                 <!-- Email input -->
                                 <div data-mdb-input-init class="form-outline mb-4">
                                     <label class="form-label" for="form3Example3">Email address</label>
-                                    <input type="text" id="form3Example3" class="form-control" name="email" />
+                                    <input type="email" id="form3Example3" class="form-control" name="email" />
                                     @error('email')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
 
-                                <!-- Password input -->
-                                <div data-mdb-input-init class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example4">Password</label>
-                                    <input type="password" id="form3Example4" class="form-control" name="password" />
-                                    @error('password')
-                                        <p class="text-danger">{{ $message }}</p>
-                                    @enderror
-                                </div>
-
-
                                 <!-- Submit button -->
-
                                 <div class="text-center">
                                     <button type="submit" data-mdb-button-init data-mdb-ripple-init
                                         class="btn btn-primary btn-block mb-4">
-                                        Login
+                                        Submit
                                     </button>
-
-
-                                    <a href="{{ route('password.request') }}"
-                                        style="display: inline-block; color: #007bff; text-decoration: none; font-size: 17px; margin-bottom: 16px; text-align: center; margin-left:25px"
-                                        onmouseover="this.style.textDecoration='underline'; this.style.color='#0056b3';"
-                                        onmouseout="this.style.textDecoration='none'; this.style.color='#007bff';">
-                                        Forgot Password?
-                                    </a>
-
-
                                 </div>
-
-
                         </div>
                         </form>
                     </div>

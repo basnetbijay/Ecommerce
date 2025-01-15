@@ -1,4 +1,5 @@
 @extends('layout')
+@section('title','home')
 @section('section')
 <div class="container-fluid">
   @if(session('message'))

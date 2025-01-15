@@ -3,12 +3,14 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements CanResetPassword
 {
    // protected $table = 'users';
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -48,6 +50,7 @@ class User extends Authenticatable
         ];
     }
     public function setPasswordAttribute($value){
-        $this->attributes['password']=bcrypt($value);
+        $this->attributes['password']=($value);
+        // $this->attributes['password']=bcrypt($value);
     }
 }
