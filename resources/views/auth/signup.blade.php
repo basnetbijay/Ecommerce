@@ -126,9 +126,7 @@
                                         name="Confirmpassword" />
                                 </div>
 
-
                                 <!-- Submit button -->
-
                                 <div class="text-center">
                                     <button type="submit" data-mdb-button-init data-mdb-ripple-init
                                         class="btn btn-primary btn-block mb-4">

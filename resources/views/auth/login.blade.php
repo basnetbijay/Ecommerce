@@ -61,7 +61,6 @@
 
         @if (session('message'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Success</strong>
                 {{ session('message') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
@@ -70,7 +69,6 @@
 
         @if (session('error'))
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Success</strong>
                 {{ session('error') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
@@ -92,7 +90,6 @@
                 </div>
 
 
-
                 <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
                     <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
                     <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
@@ -105,8 +102,6 @@
 
                             <form method="POST" action="{{ route('loggedIn') }}">
                                 @csrf
-                                <!-- 2 column grid layout with text inputs for the first and last names -->
-
                                 <!-- Email input -->
                                 <div data-mdb-input-init class="form-outline mb-4">
                                     <label class="form-label" for="form3Example3">Email address</label>
@@ -142,10 +137,7 @@
                                         Forgot Password?
                                     </a>
 
-
                                 </div>
-
-
                         </div>
                         </form>
                     </div>
@@ -155,7 +147,6 @@
         </div>
     </section>
     <!-- Section: Design Block -->
-
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

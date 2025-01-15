@@ -66,12 +66,9 @@
                 <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
                     <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
                         Reset password <br />
-                        {{-- <span style="color: hsl(218, 81%, 75%)">for your business</span> --}}
                     </h1>
 
                 </div>
-
-
 
                 <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
                     <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>

@@ -12,7 +12,7 @@ Route::prefix('dashboard')->group(function(){
         return view('welcome');
     })->name('home');
 
-    Route::prefix('roles')->name('role.')->group(function(){
+Route::prefix('roles')->name('role.')->group(function(){
 Route::get('/', [RoleController::class, 'Roles'])->name('roles');
 Route::post('/',[RoleController::class, 'addRoles'])->name('addRole');
 });
@@ -32,10 +32,11 @@ Route::post('/login',[UserController::class , 'login'])->name('loggedIn');
 Route::post('/signup', [UserController::class, 'Signup'])->name('signuped');
 Route::get('/logout',[UserController::class , 'logout'])->name('logout');
 
+//for resetting the users password using forget password methods.
 Route::controller(ForgetPasswordController::class)->group(function(){
-
 Route::get('/forget-password','ForgetView')->name('password.request');
 Route::post('/forget-password','ForgetPost')->name('password.email');
 Route::get('/reset-password/{token}','passwordReset')->name('password.reset');
 Route::post('/reset-password','passwordResetPost')->name('password.reset.post');
 });
+//ends here
