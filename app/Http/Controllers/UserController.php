@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Auth\Events\Attempting;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -65,9 +66,16 @@ class UserController extends Controller
 
   public function users(){
     $users= User::all();
-    return view('admin.role.user',['users'=>$users]);
+    $roles= Role::all();
+    return view('admin.role.user',['users'=>$users, 'roles'=>$roles]);
   }
-  public function roleAssign(Request $request){
 
+  public function roleAssign(Request $request,  $id){
+    // dd($request->all());
+$user=User::find($id);
+
+$user->syncRoles($request->role);
+return redirect()->back()->with('succcess', 'role assigned successfully');
   }
+
 }

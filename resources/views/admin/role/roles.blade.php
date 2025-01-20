@@ -24,8 +24,61 @@
                         <td> {{ $loop->iteration }}</td>
                         <td>{{ $role->name }}</td>
                         <td>View btn</td>
-                        <td> Action btns</td>
+                        <td>
+                            <button class=" btn btn-outline-primary" data-bs-toggle="modal"
+                                data-bs-target="#permissionModel{{ $role->id }}" aria-label="Close">Assign Role</button>
+                        </td>
                     </tr>
+
+                    <div class="modal" tabindex="-1" role="dialog" id="permissionModel{{ $role->id }}">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{{ route('role.assignPermission', $role->id) }}" method="POST">
+                                        @csrf
+                                        @foreach ($permission as $permissions)
+                                            @if ($role->hasPermissionTo($permissions->id))
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        value="{{ $permissions->name }}" id="flexCheckDefault"
+                                                        name="perm[]" checked>
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        {{ $permissions->name }}
+                                                    </label>
+                                                </div>
+                                            @else
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        value="{{ $permissions->name }}" id="flexCheckDefault"
+                                                        name="perm[]">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        {{ $permissions->name }}
+                                                    </label>
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="{{ $permissions->name }}"
+                                                id="flexCheckChecked" checked>
+                                            <label class="form-check-label" for="flexCheckChecked">
+                                                Checked checkbox
+                                            </label>
+                                        </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                    <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
             </tbody>
         </table>

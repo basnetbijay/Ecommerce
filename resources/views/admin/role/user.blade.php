@@ -5,9 +5,7 @@
     <div class="container-fluid m-5">
         <div class="d-flex justify-content-between">
             <h2>Roles</h2>
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#AddroleButton">Add Roles</button>
         </div>
-
 
         <table class="table">
             <thead>
@@ -15,7 +13,7 @@
                     <th scope="col">SN</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
-                    <th scope="col">View</th>
+                    <th scope="col">Role</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -25,8 +23,25 @@
                         <td> {{ $loop->iteration }}</td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>View btn</td>
-                        <td> Action btns</td>
+                        <form action="{{ route('user.roleAssign', $user->id) }}" method="post">
+                            @csrf
+                            <td>
+                                <select class="form-select" aria-label="Default select example" name="role">
+                                    <option selected disabled>Select the roles</option>
+                                    @foreach ($roles as $role)
+                                        @if ($user->hasRole($role->id))
+                                            <option value= "{{ $role->name }}" selected>{{ $role->name }}</option>
+                                        @else
+                                            <option value= "{{ $role->name }}">{{ $role->name }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                            </td>
+                            <td>
+                                <button type="submit" class="btn btn-primary" data-bs-toggle="modal">Update</button>
+                            </td>
+                        </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

@@ -15,12 +15,14 @@ Route::prefix('dashboard')->group(function(){
 Route::prefix('roles')->name('role.')->group(function(){
 Route::get('/', [RoleController::class, 'Roles'])->name('roles');
 Route::post('/',[RoleController::class, 'addRoles'])->name('addRole');
+Route::post('/assignPermission/{id}',[RoleController::class, 'assignPermission'])->name('assignPermission');
+
 });
+
     Route::prefix('users')->name('user.')->group(function(){
         Route::get('/',[UserController::class ,'users'])->name('users');
-        Route::post('/',[UserController::class, 'roleAssign'])->name('roleAssign');
-    });
-    
+        Route::post('/{id}',[UserController::class, 'roleAssign'])->name('roleAssign');
+    }); 
 });
 Route::get('/', function(){
     return view('user.Home');
@@ -39,4 +41,5 @@ Route::post('/forget-password','ForgetPost')->name('password.email');
 Route::get('/reset-password/{token}','passwordReset')->name('password.reset');
 Route::post('/reset-password','passwordResetPost')->name('password.reset.post');
 });
+
 //ends here
