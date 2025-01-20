@@ -63,17 +63,10 @@
                                                 </div>
                                             @endif
                                         @endforeach
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="{{ $permissions->name }}"
-                                                id="flexCheckChecked" checked>
-                                            <label class="form-check-label" for="flexCheckChecked">
-                                                Checked checkbox
-                                            </label>
-                                        </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                    <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 </div>
                                 </form>
                             </div>

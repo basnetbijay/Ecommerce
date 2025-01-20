@@ -63,17 +63,18 @@
                         Customers
                     </a>
                 </li>
-
-                <li>
-                    <a href="{{ route('role.roles') }}"
-                        class="nav-link  {{ Route::is('role.roles') ? 'active' : '' }} text-white">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#people-circle"></use>
-                        </svg>
-                        Roles
-                    </a>
-                </li>
-
+                @can('manage roles')
+                    <li>
+                        <a href="{{ route('role.roles') }}"
+                            class="nav-link  {{ Route::is('role.roles') ? 'active' : '' }} text-white">
+                            <svg class="bi me-2" width="16" height="16">
+                                <use xlink:href="#people-circle"></use>
+                            </svg>
+                            Roles
+                        </a>
+                    </li>
+                @endcan
+@can('manage users')
                 <li>
                     <a href="{{ route('user.users') }}"
                         class="nav-link  {{ Route::is('user.users') ? 'active' : '' }} text-white">
@@ -83,6 +84,7 @@
                         Users
                     </a>
                 </li>
+                @endcan
             </ul>
             <hr>
             <div class="dropdown">

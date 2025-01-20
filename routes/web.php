@@ -4,22 +4,24 @@ use App\Http\Controllers\ForgetPasswordController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+//  
 
+//  
 
 //grouping the route
-Route::prefix('dashboard')->group(function(){
+Route::prefix('dashboard')->middleware('can:open dashboard')->group(function(){
     Route::get('/', function () {
         return view('welcome');
     })->name('home');
 
-Route::prefix('roles')->name('role.')->group(function(){
+Route::prefix('roles')->name('role.')->middleware('can:manage roles')->group(function(){
 Route::get('/', [RoleController::class, 'Roles'])->name('roles');
 Route::post('/',[RoleController::class, 'addRoles'])->name('addRole');
 Route::post('/assignPermission/{id}',[RoleController::class, 'assignPermission'])->name('assignPermission');
 
 });
 
-    Route::prefix('users')->name('user.')->group(function(){
+    Route::prefix('users')->name('user.')->middleware(('can:manage user'))->group(function(){
         Route::get('/',[UserController::class ,'users'])->name('users');
         Route::post('/{id}',[UserController::class, 'roleAssign'])->name('roleAssign');
     }); 

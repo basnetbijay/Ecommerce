@@ -36,6 +36,11 @@ class UserController extends Controller
           $creds = $request->validate($rules ,$message);
 
         if(Auth::attempt($creds)){
+          $user = User::find(Auth::id());
+          if($user->can('open dashboard')){
+            
+            return redirect()->to('/dashboard')->with('message', 'logged in');
+          }
           return redirect()->to('/')->with('message', 'logged in');
         }
         return redirect()->back()->with('error', 'doesnot match with credentials');
