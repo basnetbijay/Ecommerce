@@ -25,6 +25,7 @@ class User extends Authenticatable implements CanResetPassword
         'name',
         'email',
         'password',
+        'google_id'
     ];
 
     /**
@@ -49,8 +50,13 @@ class User extends Authenticatable implements CanResetPassword
             // 'password' => 'hashed',
         ];
     }
-    public function setPasswordAttribute($value){
-        $this->attributes['password']=($value);
-        // $this->attributes['password']=bcrypt($value);
-    }
+    // public function setPasswordAttribute($value){
+    //     $this->attributes['password']=($value);
+    //     // $this->attributes['password']=bcrypt($value);
+    // }
+    public function setPasswordAttribute($value)
+{
+    $this->attributes['password'] = bcrypt($value); // Always hash the password before saving
+}
+
 }

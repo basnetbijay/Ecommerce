@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //to make user to not enter the password while having google login we can have  password->nullable()
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('google_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

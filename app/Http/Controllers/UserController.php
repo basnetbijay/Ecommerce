@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Auth\Events\Attempting;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -24,6 +25,7 @@ class UserController extends Controller
     public function login(Request $request){
         $data =$request->all();
         // dd($data);
+        
         $rules =[
          
           'email'=> 'required|max:255|email:rfc,dns',
@@ -37,6 +39,7 @@ class UserController extends Controller
 
         if(Auth::attempt($creds)){
           $user = User::find(Auth::id());
+        
           if($user->can('open dashboard')){
             
             return redirect()->to('/dashboard')->with('message', 'logged in');

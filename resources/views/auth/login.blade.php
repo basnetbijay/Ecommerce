@@ -128,7 +128,11 @@
                                         class="btn btn-primary btn-block mb-4">
                                         Login
                                     </button>
+                                    <a class="btn btn-floating m-1" href="{{ route('auth.google') }}" role="button">
+                                        <img src="{{ asset('storage/photos/Google.png') }}" alt="Image"
+                                            height="24" width="24"> login With Google
 
+                                    </a>
 
                                     <a href="{{ route('password.request') }}"
                                         style="display: inline-block; color: #007bff; text-decoration: none; font-size: 17px; margin-bottom: 16px; text-align: center; margin-left:25px"
