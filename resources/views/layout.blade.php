@@ -40,7 +40,7 @@
                 </li>
 
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="#" class="nav-link text-white" {{ Route::is('orders') ? 'active' : '' }}>
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#table"></use>
                         </svg>
@@ -48,11 +48,20 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="{{ route('productForm') }}" class="nav-link text-white"
+                        {{ Route::is('productForm') ? 'active' : '' }}>
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#productForm"></use>
+                        </svg>
+                        Add Products
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-white" {{ Route::is('view-products') ? 'active' : '' }}>
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>
-                        Products
+                        view Products
                     </a>
                 </li>
                 <li>

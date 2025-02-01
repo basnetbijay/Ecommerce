@@ -33,7 +33,6 @@ return redirect()->back()->with('message', 'New role has been added successfully
     }
     public function assignPermission(Request $request , $roleId){
       $value = $request->all();
-     
       $role = Role::find($roleId);
       $role->syncPermissions($value['perm']);
       return redirect()->back()->with('message', 'permission has been assigned to roles');

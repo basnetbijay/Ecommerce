@@ -10,6 +10,7 @@
 
 <body>
     <div class="container mt-5">
+
         <div class="card">
             <div class="card-header bg-primary text-white">
                 <h4 class="mb-0">Add Product</h4>
@@ -17,7 +18,10 @@
             <div class="card-body">
                 <form action="{{ route('addProduct') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Product Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
                     <div class="mb-3">
                         <label for="name" class="form-label">Product Name</label>
                         <input type="text" class="form-control" id="name" name="name" required>

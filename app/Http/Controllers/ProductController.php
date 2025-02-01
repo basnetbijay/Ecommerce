@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
-
+use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
     //displaying the form to add the products.
@@ -46,6 +46,13 @@ class ProductController extends Controller
             'message' => 'Product added successfully!',
             'product' => $product
         ], 201);
+    }
+
+    //listing the products available in the database
+    public function productList(Request $request){
+
+        $product = DB::table('products')->get();
+        return redirect()->to('ProductListing', ['product'=>$product]);
     }
 
 }

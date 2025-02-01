@@ -15,6 +15,9 @@ Route::prefix('dashboard')->group(function(){
     Route::get('/', function () {
         return view('welcome');
     })->name('home');
+    // creating the route for adding editing and deleting the products
+    Route::get('/add-product', [ProductController::class, 'showForm'])->name('productForm');
+    Route::post('/add-product', [ProductController::class, 'addProduct'])->name('addProduct');
 
 Route::prefix('roles')->name('role.')->group(function(){
 Route::get('/', [RoleController::class, 'Roles'])->name('roles');
@@ -49,7 +52,3 @@ Route::post('/reset-password','passwordResetPost')->name('password.reset.post');
 Route::get("auth/google" , [SocialiteController::class, 'googleLogin'])->name('auth.google');
 Route::get("auth/callback" , [SocialiteController::class, 'googleAuth'])->name('auth.google-callbacks');
 //ends here
-
-// creating the route for adding editing and deleting the products
-Route::get('/add-product', [ProductController::class, 'showForm'])->name('productForm');
-Route::post('/add-product', [ProductController::class, 'addProduct'])->name('addProduct');
