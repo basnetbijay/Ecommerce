@@ -28,6 +28,8 @@ class User extends Authenticatable implements CanResetPassword
         'google_id'
     ];
 
+   
+
     /**
      * The attributes that should be hidden for serialization.
      *

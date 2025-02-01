@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ForgetPasswordController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\UserController;
@@ -48,3 +49,7 @@ Route::post('/reset-password','passwordResetPost')->name('password.reset.post');
 Route::get("auth/google" , [SocialiteController::class, 'googleLogin'])->name('auth.google');
 Route::get("auth/callback" , [SocialiteController::class, 'googleAuth'])->name('auth.google-callbacks');
 //ends here
+
+// creating the route for adding editing and deleting the products
+Route::get('/add-product', [ProductController::class, 'showForm'])->name('productForm');
+Route::post('/add-product', [ProductController::class, 'addProduct'])->name('addProduct');

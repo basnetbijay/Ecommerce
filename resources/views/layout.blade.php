@@ -56,12 +56,20 @@
                     </a>
                 </li>
                 <li>
+                <li>
                     <a href="#" class="nav-link text-white">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#people-circle"></use>
+                            <use xlink:href="#table"></use>
                         </svg>
-                        Customers
+                        Category
                     </a>
+                </li>
+                <a href="#" class="nav-link text-white">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#people-circle"></use>
+                    </svg>
+                    Customers
+                </a>
                 </li>
                 {{-- @can('manage roles') --}}
                 <li>
