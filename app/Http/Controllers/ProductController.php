@@ -13,6 +13,10 @@ class ProductController extends Controller
         return view('admin.product.productForm');
     }
 
+    public function testing(){
+        return view('admin.product.test');
+    }
+
     public function addProduct(Request $request){
         
         try {

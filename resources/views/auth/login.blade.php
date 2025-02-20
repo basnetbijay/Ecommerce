@@ -131,7 +131,6 @@
                                     <a class="btn btn-floating m-1" href="{{ route('auth.google') }}" role="button">
                                         <img src="{{ asset('storage/photos/Google.png') }}" alt="Image"
                                             height="24" width="24"> login With Google
-
                                     </a>
 
                                     <a href="{{ route('password.request') }}"

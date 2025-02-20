@@ -17,6 +17,7 @@ Route::prefix('dashboard')->group(function(){
     })->name('home');
     // creating the route for adding editing and deleting the products
     Route::get('/add-product', [ProductController::class, 'showForm'])->name('productForm');
+    Route::get('/add-test', [ProductController::class, 'testing'])->name('productForm.test');
     Route::post('/add-product', [ProductController::class, 'addProduct'])->name('addProduct');
 
 Route::prefix('roles')->name('role.')->group(function(){
@@ -50,5 +51,5 @@ Route::post('/reset-password','passwordResetPost')->name('password.reset.post');
 });
 //google login  ko lagi route hai 
 Route::get("auth/google" , [SocialiteController::class, 'googleLogin'])->name('auth.google');
-Route::get("auth/callback" , [SocialiteController::class, 'googleAuth'])->name('auth.google-callbacks');
+Route::get("auth/callback" , [SocialiteController::class, 'googleAuth']);
 //ends here

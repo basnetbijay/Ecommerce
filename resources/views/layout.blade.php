@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="d-flex">
+    <div class="d-flex ">
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; height:100vh;">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <svg class="bi me-2" width="40" height="32">
@@ -21,16 +21,17 @@
 
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                    <a href="{{ route('home') }}" class="nav-link {{ Route::is('home') ? 'active' : '' }}"
+                <li class="nav-item text-white mt-3">
+                    <a href="{{ route('home') }}"
+                        class="nav-link text-white {{ Route::is('home') ? 'active bg-primary' : '' }}"
                         aria-current="page">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#home"></use>
+                            {{-- <use xlink:href="#home"></use> --}}
                         </svg>
                         Home
                     </a>
 
-                <li>
+                <li class="nav-item">
                     <a href="#" class="nav-link text-white">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#speedometer2"></use>
@@ -40,7 +41,7 @@
                 </li>
 
                 <li>
-                    <a href="#" class="nav-link text-white" {{ Route::is('orders') ? 'active' : '' }}>
+                    <a href="#" class="nav-link text-white{{ Route::is('orders') ? 'active bg-primary' : '' }}">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#table"></use>
                         </svg>
@@ -48,18 +49,20 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('productForm') }}" class="nav-link text-white"
-                        {{ Route::is('productForm') ? 'active' : '' }}>
+                    <a href="{{ route('productForm') }}"
+                        class="nav-link text-white {{ Route::is('productForm') ? 'active bg-primary' : '' }}">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#productForm"></use>
+                            <use xlink:href="productForm"></use>
                         </svg>
                         Add Products
                     </a>
                 </li>
+
                 <li>
-                    <a href="#" class="nav-link text-white" {{ Route::is('view-products') ? 'active' : '' }}>
+                    <a href="{{ route('productForm.test') }}"
+                        class="nav-link text-white {{ Route::is('productForm.test') ? 'active bg-primary' : '' }}">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#grid"></use>
+                            <use xlink:href="productForm"></use>
                         </svg>
                         view Products
                     </a>
@@ -103,6 +106,7 @@
                 </li>
                 {{-- @endcan --}}
             </ul>
+
             <hr>
             <div class="dropdown">
                 @if (Auth::check())

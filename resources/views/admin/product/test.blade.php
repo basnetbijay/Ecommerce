@@ -12,8 +12,7 @@
 
 <body>
     @section('section')
-        1
-        <div class="container  ">
+        <div class="container ">
             <div class="card">
                 <div class="card-header bg-primary text-white ">
                     <h4 class="mb-0">Add Product</h4>
