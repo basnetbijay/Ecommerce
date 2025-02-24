@@ -18,7 +18,6 @@ class ProductController extends Controller
     }
 
     public function addProduct(Request $request){
-        
         try {
             $validatedData = $request->validate([
                 'name' => 'required|string|max:255',
@@ -29,14 +28,15 @@ class ProductController extends Controller
                 'quantity' => 'required|integer|min:1',
                 'price' => 'required|numeric|min:0',
                 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+//                'description' => 'required|string|max:255',
             ]);
             //dd($request->all('name'));
         } catch (\Illuminate\Validation\ValidationException $e) {
-            dd($e->errors()); 
+            dd($e->errors());
         }
-        
+
         // dd($validatedData); // Check validated data
-        
+
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('products', 'public');
             $validatedData['image'] = $imagePath;
@@ -44,7 +44,7 @@ class ProductController extends Controller
         // Create product
         $product = Product::create($validatedData);
         return redirect()->to('dashboard');
-    
+
         // Return response
         return response()->json([
             'message' => 'Product added successfully!',
@@ -55,8 +55,9 @@ class ProductController extends Controller
     //listing the products available in the database
     public function productList(Request $request){
 
-        $product = DB::table('products')->get();
-        return redirect()->to('ProductListing', ['product'=>$product]);
+        $products = DB::table('products')->get();
+//        return redirect()->to('test', ['products'=>$products]);
+        return view('admin.product.test', compact('products'));
     }
 
 }

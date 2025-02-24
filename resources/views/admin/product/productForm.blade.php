@@ -12,7 +12,6 @@
 
 <body>
     @section('section')
-        1
         <div class="container  ">
             <div class="card">
                 <div class="card-header bg-primary text-white ">
@@ -26,13 +25,10 @@
                             <input type="text" class="form-control" id="name" name="name" required>
                         </div>
                         <div class="mb-3">
-                            <label for="name" class="form-label">Product Name</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
-                        </div>
-                        <div class="mb-3">
                             <label for="category" class="form-label">Category</label>
                             <input type="text" class="form-control" id="category" name="category" required>
                         </div>
+
                         <div class="mb-3">
                             <label for="brand" class="form-label">Brand</label>
                             <input type="text" class="form-control" id="brand" name="brand" required>
@@ -41,6 +37,11 @@
                             <label for="size" class="form-label">Size</label>
                             <input type="text" class="form-control" id="size" name="size">
                         </div>
+
+                        {{--                        <div class="mb-3"> --}}
+                        {{--                            <label for="name" class="form-label">Product Description</label> --}}
+                        {{--                            <input type="text" class="form-control" id="name" name="description" required> --}}
+                        {{--                        </div> --}}
                         <div class="mb-3">
                             <label for="color" class="form-label">Color</label>
                             <input type="text" class="form-control" id="color" name="color">

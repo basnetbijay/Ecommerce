@@ -31,14 +31,14 @@
                         Home
                     </a>
 
-                <li class="nav-item">
-                    <a href="#" class="nav-link text-white">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#speedometer2"></use>
-                        </svg>
-                        Dashboard
-                    </a>
-                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="#" class="nav-link text-white">--}}
+{{--                        <svg class="bi me-2" width="16" height="16">--}}
+{{--                            <use xlink:href="#speedometer2"></use>--}}
+{{--                        </svg>--}}
+{{--                        Dashboard--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 
                 <li>
                     <a href="#" class="nav-link text-white{{ Route::is('orders') ? 'active bg-primary' : '' }}">

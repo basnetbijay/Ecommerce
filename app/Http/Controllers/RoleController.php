@@ -18,7 +18,7 @@ class RoleController extends Controller
 
     //adding the roles
 public function addRoles(Request $request){
-        
+
 $value = $request->all();
 $rules =[
 'name'=>'required|unique:roles'
@@ -36,6 +36,5 @@ return redirect()->back()->with('message', 'New role has been added successfully
       $role = Role::find($roleId);
       $role->syncPermissions($value['perm']);
       return redirect()->back()->with('message', 'permission has been assigned to roles');
-
     }
 }
